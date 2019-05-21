@@ -1,6 +1,6 @@
 {
   "name": "worp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": {
     "name": "Michał Wrzosek",
     "email": "michal@wrzosek.pl",
@@ -14,7 +14,7 @@
     "type": "git"
   },
   "license": "MIT",
-  "types": "dist/reactComponentLib.d.ts",
+  "types": "dist/index.d.ts",
   "devDependencies": {
     "@types/chai": "^4.1.7",
     "@types/mocha": "^5.2.6",
