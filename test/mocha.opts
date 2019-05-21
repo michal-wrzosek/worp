@@ -1,0 +1,4 @@
+--recursive
+-r ts-node/register
+-r source-map-support/register
+--file "./test/setup.ts"

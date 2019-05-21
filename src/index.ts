@@ -1,3 +1,3 @@
-import { TestComponent } from "./components/TestComponent/TestComponent";
+import { fixtureFactory, FactoryInstructions } from "./lib/worp/fixtureFactory";
 
-export { TestComponent };
+export { fixtureFactory, FactoryInstructions };
