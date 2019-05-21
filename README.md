@@ -1,5 +1,7 @@
 # worp - fixtures factory / generator
 
+This package is useful when you need to quickly create lots of objects (fixtures) based on some instructions. Nice thing about this library is that it's super small (no dependencies) and it works very well with Typescript.
+
 ### Installation
 
 To install this package:
@@ -69,6 +71,11 @@ This code will generate 100 objects like this:
   ... (98 more like this)
 ]
 ```
+
+---
+
+**Tags:**
+mongodb, mongoose, typescript, database, db, fixtures, fixture, factory, generator
 
 ---
 
