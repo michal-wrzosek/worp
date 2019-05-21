@@ -18,10 +18,10 @@ type ExampleProps = {
 class App extends Component {
   render() {
     const factoryInstructions: FactoryInstructions<ExampleProps> = {
-      a: index => `propert A, record nr: ${index + 1}`,
+      a: index => `property A, record nr: ${index + 1}`,
       b: index => index + 1,
       c: () =>
-        `propert C, random integer from 1 to 10: ${Math.ceil(
+        `property C, random integer from 1 to 10: ${Math.ceil(
           Math.random() * 10
         )}`
     };

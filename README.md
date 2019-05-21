@@ -1,22 +1,76 @@
-# react-component-lib
+# worp - fixtures factory / generator
 
-This is a boilerplate repository for creating npm packages with React components written in TypeScript and using styled-components.
+### Installation
 
-Medium article explaining step by step how to use this repo to publish your own library to NPM:
-https://medium.com/@xfor/developing-publishing-react-component-library-to-npm-styled-components-typescript-cc8274305f5a
+To install this package:
 
-## Installation:
+```bash
+npm install worp
+```
 
-To install all dependencies run `npm run install-all`.
+If you use Typescript you don't need to download anything else. Typescript will be automatically loaded.
 
-## Developing your library:
+### Example use
 
-To start developing your library, run `npm run dev`. It will build your library and run example create-react-app where you can test your components. Each time you make changes to your library or example app, app will be reloaded to reflect your changes.
+**Javascript:**
 
-## Styled-components:
+```typescript
+import { fixtureFactory } from "worp";
 
-Developing library with components built with styled-components is challenging because you have to keep only one instance of styled-components. If you would just symlink your library (`file:../` or `npm link`) to example app that is also using styled-components you'll get a console warning about multiple instances of styled-components (even though styled-components are peer dependency) and your styles will be possibly broken. To be able to conveniently develop styled components I am injecting bundled files directly into example app's /src folder and importing it in App.tsx along with type declaration.
+const factoryInstructions = {
+  a: index => `property A, record nr: ${index + 1}`,
+  b: index => index + 1,
+  c: () =>
+    `property C, random integer from 1 to 10: ${Math.ceil(Math.random() * 10)}`
+};
 
-## Typescript
+const records = fixtureFactory(factoryInstructions, {
+  nrOfRecordsToGenerate: 100
+});
+```
 
-This boilerplate lets you develop your libraries in Typescript and you can simultaneously test it in Typescript example create-react-app.
+**Typescript:**
+
+```typescript
+import { fixtureFactory, FactoryInstructions } from "worp";
+
+type ExampleProps = {
+  a: string;
+  b: number;
+  c: string;
+};
+
+const factoryInstructions: FactoryInstructions<ExampleProps> = {
+  a: index => `property A, record nr: ${index + 1}`,
+  b: index => index + 1,
+  c: () =>
+    `property C, random integer from 1 to 10: ${Math.ceil(Math.random() * 10)}`
+};
+
+const records = fixtureFactory(factoryInstructions, {
+  nrOfRecordsToGenerate: 100
+});
+```
+
+This code will generate 100 objects like this:
+
+```
+[
+  {
+    a: "property A, record nr: 1",
+    b: 1,
+    c: "property C, random integer from 1 to 10: 3",
+  },
+  {
+    a: "property A, record nr: 2",
+    b: 2,
+    c: "property C, random integer from 1 to 10: 6",
+  },
+  ... (98 more like this)
+]
+```
+
+---
+
+This package was created out of this boilerplate:
+https://github.com/michal-wrzosek/react-component-lib
